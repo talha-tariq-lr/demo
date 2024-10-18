@@ -25,7 +25,7 @@ public class DemoController {
 
     @GetMapping("")
     public String home() {
-        return "nbye bye!";
+        return "nbye testing!";
     }
 
     @GetMapping("/hello")
