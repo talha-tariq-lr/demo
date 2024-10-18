@@ -30,7 +30,7 @@ public class DemoController {
 
     @GetMapping("/hello")
     public String yes() {
-        return "test 3";
+        return "test 6";
     }
 
     @PostMapping("/scores")
