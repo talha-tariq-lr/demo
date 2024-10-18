@@ -25,12 +25,12 @@ public class DemoController {
 
     @GetMapping("")
     public String home() {
-        return "nbye testing!";
+        return "nbye bye!";
     }
 
     @GetMapping("/hello")
     public String yes() {
-        return "test 6";
+        return "yesyesyesyesyyeysyeysgeuisgdsgiodugoidsfguoifdsugiosdfugoisdfuigo";
     }
 
     @PostMapping("/scores")
