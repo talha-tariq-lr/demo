@@ -12,14 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 
 @RequestMapping("/")
 @RestController
 @CrossOrigin()
 public class DemoController {
 
-    public DemoController() {
-        
+    DemoRepository repo;
+
+    public DemoController(DemoRepository repo) {
+        this.repo = repo;
     }
 
 
@@ -33,12 +37,19 @@ public class DemoController {
         return "yesyesyesyesyyeysyeysgeuisgdsgiodugoidsfguoifdsugiosdfugoisdfuigo";
     }
 
-    @PostMapping("/scores")
+    @PostMapping("/score")
     @ResponseStatus(HttpStatus.CREATED)
-    public Score retreiveScores(@RequestBody Score score) {
-        System.out.println(score);
+    public Score saveScore(@RequestBody Score score) {
+
+        repo.save(score);
+
 
         return new Score("yes checking this", "and this aswell", 55, 66);
+    }
+
+    @GetMapping("/scores")
+    public ArrayList<Score> getScores() {
+        return repo.getAllScores();
     }
 
 }
