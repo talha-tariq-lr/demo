@@ -21,9 +21,11 @@ import java.util.ArrayList;
 public class DemoController {
 
     DemoRepository repo;
+    JPARepository JpaRepo;
 
-    public DemoController(DemoRepository repo) {
-        this.repo = repo;
+    public DemoController(DemoRepository demoRepo, JPARepository JpaRepo) {
+        this.repo = demoRepo;
+        this.JpaRepo = JpaRepo;
     }
 
 
@@ -41,10 +43,12 @@ public class DemoController {
     @ResponseStatus(HttpStatus.CREATED)
     public Score saveScore(@RequestBody Score score) {
 
-        repo.save(score);
+        
 
+        JpaRepo.save(new GameEntity(score.player1UserName(), score.player2UserName(), score.player1Score(),
+        score.player2Score()));
 
-        return new Score("yes checking this", "and this aswell", 55, 66);
+        return new Score("yes checking sdfdf", "and this aswell", 55, 66);
     }
 
     @GetMapping("/scores")

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import com.example.Score;
 
+import java.time.Instant;
+
 
 @Repository
 public class DemoRepository {
@@ -19,6 +21,9 @@ public class DemoRepository {
 
     public void save(Score score) {
         demoList.add(score);
+
+        Instant currentTime = Instant.now();
+
     }
 
     public ArrayList<Score> getAllScores() {
